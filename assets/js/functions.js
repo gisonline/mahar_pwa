@@ -338,7 +338,7 @@ var wapco = {
                     dataType: 'jsonp',
                     async: true,
                     data: {
-                        name: "Save car's point",
+                        name: "Save cars point",
                         MACADDRESS: mySerial,
                         TIMESTAMP: timestamp,
                         LON: lon.toFixed(6),
