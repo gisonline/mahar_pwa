@@ -26,14 +26,11 @@ workbox.precaching.precacheAndRoute([
     {url: 'assets/js/ol3/ol.js', revision: '1'},
     {url: 'assets/js/fastclick.js', revision: '1'},
     {url: 'assets/js/notify.min.js"', revision: '1'},
-    {url: 'assets/js/config.js', revision: '1'},
-    {url: 'assets/js/map.js', revision: '1'},
     {url: 'assets/js/mapbox_style.js', revision: '1'},
-    {url: 'assets/js/alerts.js', revision: '1'},
-    {url: 'assets/js/shake.js', revision: '1'},
-    {url: 'assets/js/accelerometer.js', revision: '1'},
-    {url: 'assets/js/camera.js', revision: '1'},
-    {url: 'assets/js/index.js', revision: '1'},
+    {url: 'assets/js/config.js', revision: '1'},
+    {url: 'assets/js/functions.js', revision: '1'},
+    {url: 'assets/js/start.js', revision: '1'},
+    {url: 'assets/js/awake.js', revision: '1'},
 ], {
     // Ignore all URL parameters.
     ignoreURLParametersMatching: [/.*/]
