@@ -20,7 +20,7 @@ workbox.precaching.precacheAndRoute([
     {url: 'assets/img/wifioff.png', revision: '1'},
     {url: 'assets/img/network.png', revision: '1'},
     {url: 'assets/img/fire.gif', revision: '1'},
-    {url: 'assets/js/jquery-2.2.4.min.js', revision: '1'},
+    {url: 'assets/js/jquery-2.2.4.js', revision: '1'},
     {url: 'assets/js/jquery.mobile-1.4.5.min.js', revision: '1'},
     {url: 'assets/js/proj4.js', revision: '1'},
     {url: 'assets/js/ol3/ol.js', revision: '1'},
