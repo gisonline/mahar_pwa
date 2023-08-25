@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'BKoodakBold';
+    src: url(BKoodakBold.eot)format('embedded-opentype'),url(BKoodakBold.woff) format('woff'),url(BKoodakBold.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'iFlat';
+    font-style: normal;
+    font-weight: 400;
+    src: url(iFlat-Regular.eot);
+    src: url(iFlat-Regular.eot?#iefix) format('embedded-opentype'),
+        url(iFlat-Regular.woff2) format('woff2'),
+        url(iFlat-Regular.woff) format('woff'),
+        url(iFlat-Regular.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'iFlat Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: url(iFlat-Bold.eot);
+    src: url(iFlat-Bold.eot?#iefix) format('embedded-opentype'),
+        url(iFlat-Bold.woff2) format('woff2'),
+        url(iFlat-Bold.woff) format('woff'),
+        url(iFlat-Bold.ttf) format('truetype');
+}

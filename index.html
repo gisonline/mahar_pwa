@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+        <meta http-equiv="Content-Security-Policy" content="child-src * gap://ready; default-src 'self' gap://ready file://* *; connect-src * blob: data:; style-src * 'unsafe-inline'; script-src * 'unsafe-eval' 'unsafe-inline'; img-src data: *"> 
+        <title>Wapco Tablet</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/ol.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/jquery.mobile-1.4.5.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/wapco-theme.css"/>
+        <script type="text/javascript">
+            window.L_DISABLE_3D = true;
+        </script>
+    </head>
+    <body dir="rtl">
+
+        <!--<div class="ui-responsive-panel">-->
+        <div data-role="page" id="demo-page" data-url="demo-page">
+            <div id="custom-border-radius">
+                <a href="#right-panel" class="ui-btn ui-shadow ui-corner-all ui-icon-gear ui-btn-icon-bottom  ui-btn-b ui-btn-inline" style="z-index: 1000;" data-icon="bars">تنظیمات</a>
+                <!--<a href="#right-panel" class="ui-btn ui-icon-gear ui-btn-icon-notext ui-corner-all" data-icon="bars">No text</a>-->
+            </div>
+            <div id="upload">
+                <img src="assets/img/upload.gif" style="width:24px;height:24px;border:0"/>
+            </div>
+            <div id="stopUpload">
+                <img src="assets/img/ios7-close.png" style="width:24px;height:24px;border:0"/>
+            </div>
+            <div id="sat">
+                <img src="assets/img/sat.gif" style="width:24px;height:24px;border:0"/>
+            </div>
+            <div id="wifi">
+                <img src="assets/img/wifioff.png" style="width:24px;height:24px;border:0"/>
+            </div>
+            <div id="network">
+                <img src="assets/img/network.png" style="width:24px;height:24px;border:0"/>
+            </div>
+            <div id="firealarm">
+                <img src="assets/img/fire.gif" style="width:24px;height:24px;border:0"/>
+            </div>
+
+            <div class="address"><div class="content"></div></div>
+            <div class="desc"><div class="content"></div></div>
+            <!--<div class="address"><span class="close">x</span><br/><div class="content"></div></div>-->
+            <div id="map"></div>
+            <!--<div id="map"><div id="mouse-position"></div></div>-->
+
+            <div class="content" id="content"></div>
+
+
+            <!--<div id="menu" onclick="wapco.openPanel();">&nbsp;</div>-->
+            <!--<div id="menu3">وب اطلس پویا</div>logowapco-->
+            <!--            <div id="logo">
+                            <img src="assets/img/logowapco.png" alt="wapco" style="width:150px;height:36px;border:0"/>
+                        </div>-->
+            <div id="positionxy" onclick="wapco.zoom(1);">x / y</div>
+
+
+            <!--right panel------------------------------------------------------->
+            <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="right-panel" style="overflow-y: scroll;">
+                <ul data-role="listview">
+                    <li data-icon="delete"><a href="#" data-rel="close">بستن</a>
+
+                    </li>
+                    <li class="ui-checkbox">
+                        <label>
+                            <input name="checkbox-0" type="checkbox" onchange="toggleZoomFire();">حادثه در مرکز
+                        </label>
+                    </li>
+                    <li class="ui-checkbox">
+                        <label>
+                            <input name="checkbox-0" type="checkbox"  onchange="toggleZoomCar();">خودرو در مرکز
+                        </label>
+                    </li>
+                    <li class="ui-checkbox">
+                        <label>
+                            <input name="checkbox-0" type="checkbox"  onchange="wapco.toggleMabar();">شهرشناسی
+                        </label>
+                    </li>
+                    <li data-role="controlgroup" data-type="horizontal">
+                    <legend>نقشه :</legend>
+                    <input name="checkbox-h-2a" id="checkbox-h-2a" onclick="toggleMap('onlineFFO', 'checkbox-h-2a');" type="checkbox">
+                    <label for="checkbox-h-2a">مهار</label>
+                    <input name="checkbox-h-2b" id="checkbox-h-2b" onclick="toggleMap('osm', 'checkbox-h-2b');" type="checkbox">
+                    <label for="checkbox-h-2b">اپن استریت</label>
+                    <!--                    <input name="checkbox-h-2c" id="checkbox-h-2c" onclick="toggleMap('wapco', 'checkbox-h-2c');" type="checkbox">
+                                        <label for="checkbox-h-2c">وب اطلس</label>-->
+                    </li>
+                    <li class="ui-field-contain">
+                        <label for="timesInfo">ثبت زمان<a href="#timesInfo" data-rel="popup" data-transition="pop" class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext" title="Learn more">بیشتر بدانید</a></label>
+                        <input data-inline="true" value="کلیک کنید" type="button" onclick="$('#times').trigger('click');">
+                    </li>
+
+                    <li class="ui-field-contain">
+
+                        <!--<label for="camera">گرفتن تصویر<a href="#shahrsaziInfo" data-rel="popup" data-transition="pop" class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext" title="Learn more">بیشتر بدانید</a></label>-->
+                        <input id="but_take" data-inline="true" value="گرفتن تصویر" type="button" onclick="">
+                        <!--<label for="camera">ارسال تصویر<a href="#shahrsaziInfo" data-rel="popup" data-transition="pop" class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext" title="Learn more">بیشتر بدانید</a></label>-->
+                        <input id="but_select" data-inline="true" value="ارسال تصویر" type="button" onclick="">
+                    </li>
+                    <li class="ui-field-contain">
+                        <label for="tabletMac">شناسه تبلت</label>
+                        <input id="deviceId" data-inline="true" value="" type="text" disabled>
+                    </li>
+
+                </ul>
+            </div>
+            <div data-role="popup" id="shahrsaziInfo" class="ui-content" data-theme="a" style="max-width:350px;">
+                <p>پس از فعالسازی شهرسازی با کلیک بر روی معبر مورد نظر منویی باز می شود که امکان تغییر نوع و یا اعلام مسدودی فراهم </p>
+            </div>
+            <div data-role="popup" id="zoomfireInfo" class="ui-content" data-theme="a" style="max-width:350px;">
+                <p>با فعالسازی این قسمت نقشه به صورتی تنظیم می شود که فوکوس آن برروی محل حادثه خواهد بود </p>
+            </div>
+            <div data-role="popup" id="zoomcarInfo" class="ui-content" data-theme="a" style="max-width:350px;">
+                <p>با فعالسازی این قسمت نقشه به صورتی تنظیم می شود که فوکوس آن برروی محل خودرو خواهد بود </p>
+            </div>
+            <!--update mabar info-------------------------------------------------------------------------->
+            <a id="mabar" href="#popupMabar" data-rel="popup" data-position-to="window" data-transition="flow"></a>
+            <div data-role="popup" id="popupMabar" data-theme="a" class="ui-corner-all">
+                <!--<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">بستن</a>-->
+                <div style="padding:10px 20px;">
+                    <h3>لطفا اطلاعات را تکمیل نمایید</h3>
+                    <div class="modal-body">
+                        <input type="hidden" id="LINK_ID"/>
+                        <div class="form-group input-group">
+                            <label id="LINK_NAME_lbl" for="LINK_NAME" class="input-group-addon">نام معبر</label>
+                            <input id="LINK_NAME" type="text" class="form-control rtl"/>
+                        </div>
+                        <div class="form-group input-group">
+                            <label for="CLOSED" class="input-group-addon">مسدوداست</label>
+                            <select id="CLOSED" class="form-control rtl">
+                                <option value="FALSE">خیر</option>
+                                <option value="TRUE">بله</option>
+                            </select>
+                        </div>
+                        <div class="form-group input-group">
+                            <label for="DIRECT" class="input-group-addon">نوع معبر</label>
+                            <select id="DIRECT" class="form-control rtl">
+                                <option value="1">یکطرفه</option>
+                                <option value="2">دوطرفه</option>
+                            </select>
+                        </div>
+                        <button type="button" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check" onclick="changeMabarsInfo();">ثبت</button>
+                        <!--<a class="btn btn-success btn-block" onclick="changeMabarsInfo();">ثبت</a>-->
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <!--update times-------------------------------------------------------------------->
+            <a id="times" href="#popupTimes" data-rel="popup" data-position-to="window" data-transition="flow"></a>
+            <div data-role="popup" id="popupTimes" data-theme="a" class="ui-corner-all" style="width: 200px;">
+                <!--<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">بستن</a>-->
+                <div style="padding:10px 20px;">
+                    <!--<h3>لطفا زمانها را ثبت نمایید</h3>-->
+                    <ul data-role="listview">
+                        <li class="ui-field-contain">
+                            <label for="104"  onclick="wapco.saveTime('104');">رسیدن به محل</label>
+                            <input type="text" disabled="" id="104" class="ui-btn ui-mini ui-btn-inline" value="" onclick="wapco.saveTime('104');">
+                        </li>
+                        <li class="ui-field-contain">
+                            <label for="105"  onclick="wapco.saveTime('105');">پایان عملیات</label>
+                            <input type="text" disabled="" id="105" class="ui-btn ui-mini ui-btn-inline" value="" onclick="wapco.saveTime('105');">
+                        </li>
+                        <li class="ui-field-contain">
+                            <label for="106"  onclick="wapco.saveTime('106');">برگشت به ایستگاه</label>
+                            <input type="text" disabled="" id="106" class="ui-btn ui-mini ui-btn-inline" value="" onclick="wapco.saveTime('106');">
+                        </li>
+                        <li class="ui-field-contain">
+                            <label for="107"  onclick="wapco.saveTime('107');">رسیدن به ایستگاه</label>
+                            <input type="text" disabled="" id="107" class="ui-btn ui-mini ui-btn-inline" value="" onclick="wapco.saveTime('107');">
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!--get actions-------------------------------------------------------------------->
+            <a id="actionsList" href="#popupActionsList" data-rel="popup" data-position-to="window" data-transition="flow"></a>
+            <div data-role="popup" id="popupActionsList" data-theme="a" class="ui-corner-all" style="width: 300px;">
+                <a id="closePopupActionsList" href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">بستن</a>
+                <div class="form-group input-group">
+                    <label for="actionNumber" class="input-group-addon">شماره عملیات</label>
+                    <select id="actionNumber" class="form-control rtl">
+                    </select>
+                </div>
+                <button id="popupActionsListBtn" type="button" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">انتخاب</button>
+            </div>
+
+        </div>
+
+        <script type="text/javascript" src="assets/js/jquery-2.2.4.min.js"></script>
+        <script type="text/javascript" src="assets/js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="assets/js/proj4.js"></script>
+        <script type="text/javascript" src="assets/js/ol3/ol.js"></script>
+        <script type="text/javascript" src="assets/js/fastclick.js"></script>
+        <script type="text/javascript" src="assets/js/notify.min.js"></script>
+        <script type="text/javascript" src="assets/js/config.js"></script>
+        <script type="text/javascript" src="assets/js/functions.js"></script>
+        <script type="text/javascript" src="assets/js/mapbox_style.js"></script>
+        <!--<script type="text/javascript" src="assets/js/alerts.js"></script>-->
+        <script type="text/javascript" src="assets/js/shake.js"></script>
+        <script type="text/javascript" src="assets/js/start.js"></script>
+        <script type="text/javascript" src="assets/js/awake.js"></script>
+        <!--<script type="text/javascript" src="assets/js/index.js"></script>-->
+        <script>
+                                //            if ("serviceWorker" in navigator) {
+                                //                navigator.serviceWorker.register("service-worker.js");
+                                //            }
+                                const registerServiceWorker = async () => {
+                                    if ("serviceWorker" in navigator) {
+                                        try {
+                                            const registration = await navigator.serviceWorker.register("service-worker.js", {
+                                                //                            scope: "/",
+                                            });
+                                            if (registration.installing) {
+                                                console.log("Service worker installing");
+                                            } else if (registration.waiting) {
+                                                console.log("Service worker installed");
+                                            } else if (registration.active) {
+                                                console.log("Service worker active");
+                                            }
+                                        } catch (error) {
+                                            console.error(`Registration failed with ${error}`);
+                                        }
+                                    }
+                                };
+                                registerServiceWorker();
+
+        </script>
+
+    </body>
+
+</html>

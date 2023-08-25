@@ -1,0 +1,28 @@
+{
+  "name": "مدیریت عملیات مهار",
+  "short_name": "mahar app",
+  "description": "An offline capable map viewer with GPS integration for mahar",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#2196f3",
+  "theme_color": "#2196f3",
+  "icons": [
+    {
+      "src": "assets/img/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "orientation": "portrait",
+  "lang": "fa",
+  "dir": "rtl",
+  "categories": [
+    "business",
+    "navigation"
+  ]
+}
