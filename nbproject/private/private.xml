@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/develope/mahar_pwa/assets/css/app.css</file>
-            <file>file:/D:/develope/mahar_pwa/service-worker.js</file>
+            <file>file:/D:/develope/mahar_pwa/assets/js/start.js</file>
+            <file>file:/D:/develope/mahar_pwa/assets/js/config.js</file>
             <file>file:/D:/develope/mahar_pwa/index.html</file>
-            <file>file:/D:/develope/mahar_pwa/main.html</file>
-            <file>file:/D:/develope/mahar_pwa/assets/js/app.js</file>
+            <file>file:/D:/develope/mahar_pwa/service-worker.js</file>
+            <file>file:/D:/develope/mahar_pwa/assets/js/functions.js</file>
         </group>
     </open-files>
 </project-private>

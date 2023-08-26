@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa" dir="rtl">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
-        <meta http-equiv="Content-Security-Policy" content="child-src * gap://ready; default-src 'self' gap://ready file://* *; connect-src * blob: data:; style-src * 'unsafe-inline'; script-src * 'unsafe-eval' 'unsafe-inline'; img-src data: *"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="theme-color" content="#000000">
+        <meta name="description" content="An offline capable map viewer with GPS integration">
+        <meta name="author" content="wapco">
         <title>Wapco Tablet</title>
+        <link rel="manifest" href="manifest.json">
+        <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
         <link rel="stylesheet" type="text/css" href="assets/css/ol.css"/>
         <link rel="stylesheet" type="text/css" href="assets/css/jquery.mobile-1.4.5.css"/>
         <link rel="stylesheet" type="text/css" href="assets/css/wapco-theme.css"/>
-        <script type="text/javascript">
-            window.L_DISABLE_3D = true;
-        </script>
     </head>
     <body dir="rtl">
 
@@ -78,7 +83,6 @@
                         </label>
                     </li>
                     <li data-role="controlgroup" data-type="horizontal">
-                    <legend>نقشه :</legend>
                     <input name="checkbox-h-2a" id="checkbox-h-2a" onclick="toggleMap('onlineFFO', 'checkbox-h-2a');" type="checkbox">
                     <label for="checkbox-h-2a">مهار</label>
                     <input name="checkbox-h-2b" id="checkbox-h-2b" onclick="toggleMap('osm', 'checkbox-h-2b');" type="checkbox">
