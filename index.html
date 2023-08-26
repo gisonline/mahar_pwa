@@ -83,16 +83,16 @@
                         </label>
                     </li>
                     <li data-role="controlgroup" data-type="horizontal">
-                    <input name="checkbox-h-2a" id="checkbox-h-2a" onclick="toggleMap('onlineFFO', 'checkbox-h-2a');" type="checkbox">
-                    <label for="checkbox-h-2a">مهار</label>
-                    <input name="checkbox-h-2b" id="checkbox-h-2b" onclick="toggleMap('osm', 'checkbox-h-2b');" type="checkbox">
-                    <label for="checkbox-h-2b">اپن استریت</label>
-                    <!--                    <input name="checkbox-h-2c" id="checkbox-h-2c" onclick="toggleMap('wapco', 'checkbox-h-2c');" type="checkbox">
-                                        <label for="checkbox-h-2c">وب اطلس</label>-->
+                        <input name="checkbox-h-2a" id="checkbox-h-2a" onclick="toggleMap('onlineFFO', 'checkbox-h-2a');" type="checkbox">
+                        <label for="checkbox-h-2a">مهار</label>
+                        <input name="checkbox-h-2b" id="checkbox-h-2b" onclick="toggleMap('osm', 'checkbox-h-2b');" type="checkbox">
+                        <label for="checkbox-h-2b">اپن استریت</label>
+                        <!--                    <input name="checkbox-h-2c" id="checkbox-h-2c" onclick="toggleMap('wapco', 'checkbox-h-2c');" type="checkbox">
+                                            <label for="checkbox-h-2c">وب اطلس</label>-->
                     </li>
                     <li class="ui-field-contain">
                         <label for="timesInfo">ثبت زمان<a href="#timesInfo" data-rel="popup" data-transition="pop" class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext" title="Learn more">بیشتر بدانید</a></label>
-                        <input data-inline="true" value="کلیک کنید" type="button" onclick="$('#times').trigger('click');">
+                        <input id="timesInfo" data-inline="true" value="کلیک کنید" type="button" onclick="$('#times').trigger('click');">
                     </li>
 
                     <li class="ui-field-contain">
@@ -103,7 +103,7 @@
                         <input id="but_select" data-inline="true" value="ارسال تصویر" type="button" onclick="">
                     </li>
                     <li class="ui-field-contain">
-                        <label for="tabletMac">شناسه تبلت</label>
+                        <label for="deviceId">شناسه تبلت</label>
                         <input id="deviceId" data-inline="true" value="" type="text" disabled>
                     </li>
 
@@ -190,7 +190,9 @@
             </div>
 
         </div>
-
+        <script type="text/javascript" src="assets/vendor/sqljs-1.8.0/sql-wasm.js"></script>
+        <script type="text/javascript" src="assets/vendor/sqljs-1.8.0/sql-wasm.wasm"></script>
+        <script type="text/javascript" src="assets/vendor/localForage-1.10.0/localforage.min.js"></script>
         <script type="text/javascript" src="assets/js/jquery.min.js"></script>
         <script type="text/javascript" src="assets/js/jquery.mobile-1.4.5.min.js"></script>
         <script type="text/javascript" src="assets/js/proj4.js"></script>
@@ -227,6 +229,8 @@
                                     }
                                 };
                                 registerServiceWorker();
+
+
 
         </script>
 
