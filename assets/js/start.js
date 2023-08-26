@@ -309,7 +309,7 @@ $(function () {
         className: 'custom-mouse-position',
         target: document.getElementById('mouse-position'),
         undefinedHTML: '&nbsp;'
-      });
+    });
 
 //    map.addControl(mousePositionControl);
     ////////////remove attributes
@@ -322,7 +322,7 @@ $(function () {
         }
     });
     map.removeControl(attributionControl);
-    
+
     ////////////////////
     document.addEventListener('DOMContentLoaded', function () {
         FastClick.attach(document.body);
@@ -363,7 +363,11 @@ $(function () {
 
     // handle geolocation error.
     geolocation.on('error', function (error) {
-        alert('error')
+//        alert('error')
+        navigator.geolocation.getCurrentPosition(function (location) {
+            console.log(location.coords.latitude);
+            console.log(location.coords.longitude);
+        });
         console.log(error)
 //        var info = document.getElementById('info');
 //        info.innerHTML = error.message;
@@ -392,12 +396,12 @@ $(function () {
     geolocation.on('change:position', function () {
         var coordinates = geolocation.getPosition();
         var projectedCoords = ol.proj.transform(coordinates, 'EPSG:3857', config[3]);
-        
+
         projectedCoords[3] = geolocation.getAccuracy();
         projectedCoords[5] = geolocation.getHeading() || 0;
         projectedCoords[6] = geolocation.getSpeed() || 0;
         projectedCoords[7] = Date.now();
-        
+
         console.log(projectedCoords)
         wapco.lastPosition.lon = projectedCoords[0]
         wapco.lastPosition.lat = projectedCoords[1]
