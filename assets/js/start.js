@@ -367,8 +367,10 @@ $(function () {
         navigator.geolocation.getCurrentPosition(function (location) {
             console.log(location.coords.latitude);
             console.log(location.coords.longitude);
+        }, function (error) {
+            console.log(error)
         });
-        console.log(error)
+            console.log(error)
 //        var info = document.getElementById('info');
 //        info.innerHTML = error.message;
 //        info.style.display = '';
